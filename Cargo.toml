@@ -1,0 +1,13 @@
+[package]
+name = "RustyGrep"
+version = "0.1.0"
+authors = ["Saksham Madan <contact_saksham.unserialize@simplelogin.co>"]
+description = "A simple and mini grep."
+license = "MIT"
+edition = "2021"
+# repository = ""
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
