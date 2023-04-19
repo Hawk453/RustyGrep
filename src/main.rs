@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
 use std::env;
+use std::error::Error;
 use std::fs;
 use std::process;
 
@@ -24,6 +25,15 @@ impl Config {
     }
 }
 
+fn run(config: Config) -> Result<(), Box<dyn Error>> {
+    // Reading a file
+    let contents = fs::read_to_string(config.file_path)?;
+
+    println!("With text:\n{contents}");
+
+    Ok(())
+}
+
 
 fn main() {
     // Utilising String, not OsString, cause of simplicity and portability.
@@ -37,10 +47,9 @@ fn main() {
     println!("Searchin for '{}'", config.query);
     println!("In text file {}", config.file_path);
 
-    // Reading a file
-    let contents = fs::read_to_string(config.file_path)
-        .expect("Should have been able to read the file");
-
-    println!("With text:\n{contents}");
+    if let Err(e) = run(config) {
+        println!("Application Error: {e}");
+        process::exit(1);
+    }
     
 }
