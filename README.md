@@ -5,3 +5,5 @@ The intent of this project is to provide a larger example of writing a rust appl
 
 **Disclaimer** Please do not use RustyGrep in production. This project is
 intended to be a learning resource, and omits various parts of the grep. Purely intedend for academic/educational purposes.
+<br>
+Credit: [Rust Book](https://doc.rust-lang.org/book/) 
