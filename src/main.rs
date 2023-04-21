@@ -11,7 +11,7 @@ fn main() {
     // OsString values differ per platform and are more complex to work with than String values.
     let args: Vec<String> = env::args().collect();
     let config = Config::build(&args).unwrap_or_else(|err| {
-        println!("Problem Parsing arguments: {err}");
+        eprintln!("Problem Parsing arguments: {err}");
         process::exit(1);
     });
 
@@ -19,7 +19,7 @@ fn main() {
     println!("In text file {}", config.file_path);
 
     if let Err(e) = RustyGrep::run(config) {
-        println!("Application Error: {e}");
+        eprintln!("Application Error: {e}");
         process::exit(1);
     }
     
