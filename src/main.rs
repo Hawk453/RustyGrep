@@ -9,8 +9,8 @@ use RustyGrep::Config;
 fn main() {
     // Utilising String, not OsString, cause of simplicity and portability.
     // OsString values differ per platform and are more complex to work with than String values.
-    let args: Vec<String> = env::args().collect();
-    let config = Config::build(&args).unwrap_or_else(|err| {
+    
+    let config = Config::build(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem Parsing arguments: {err}");
         process::exit(1);
     });
